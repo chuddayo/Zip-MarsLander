@@ -22,7 +22,8 @@ public class DescentEvent {
     public int getStatus() { return this.Status; }
     @Override
     public String toString() {
-        String s = this.Seconds +"\t\t" + this.Velocity + " \t\t" + this.Fuel + " \t\t" + this.Altitude;
-        return s;
+        return String.format("%10s%10s%10s%10s       ", this.Seconds, this.Velocity, this.Fuel, this.Altitude);
+//        String s = this.Seconds +"\t\t" + this.Velocity + " \t\t" + this.Fuel + " \t\t" + this.Altitude;
+//        return s;
     }
 }

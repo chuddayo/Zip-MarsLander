@@ -27,14 +27,17 @@ public class Simulation {
     }
 
     public String getHeader() {
-        String s = "";
-        s = s + "\nTime\t";
-        s = s + "Velocity\t\t"; s = s + "Fuel\t\t";
-        s = s + "Altitude\t\t"; s = s + "Burn\n";
-        s = s + "----\t";
-        s = s + "-----\t\t";
-        s = s + "----\t\t";
-        s = s + "------\t\t"; s = s + "----\n";
+        String s = "\n";
+        s = s + "      Time";
+        s = s + "  Velocity";
+        s = s + "      Fuel";
+        s = s + "  Altitude";
+        s = s + "      Burn\n";
+        s = s + "      ----";
+        s = s + "  --------";
+        s = s + "      ----";
+        s = s + "  --------";
+        s = s + "      ----";
         return s;
     }
 
@@ -55,7 +58,7 @@ public class Simulation {
         printString(getHeader());
         while (vehicle.stillFlying()) {
             status = vehicle.getStatus(burnInterval);
-            System.out.print(status.toString()+"\t\t");
+            System.out.print(status.toString()); // +"\t\t"
             vehicle.adjustForBurn(burnSource.getNextBurn(status));
             if (vehicle.outOfFuel()) {
                 break;
@@ -74,8 +77,11 @@ public class Simulation {
 
     public static void main(String[] args) {
         // create a new Simulation object with a random starting altitude
+        Simulation sim = new Simulation(new Vehicle(randomaltitude()));
         // create a new BurnInputStream
+        BurnInputStream burnStream = new BurnInputStream();
         // pass the new BurnInputStream to the runSimulation method
+        sim.runSimulation(burnStream);
     }
 
 }
