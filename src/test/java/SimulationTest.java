@@ -24,6 +24,7 @@ public class SimulationTest {
         int okay = game.runSimulation(burnSource);
         Assert.assertEquals(Vehicle.DEAD, okay);
     }
+
     @Test
     public void runSimulationComputer_4500() {
         BurnStream burnSource = new OnBoardComputer();
@@ -46,9 +47,23 @@ public class SimulationTest {
         Assert.assertEquals(Vehicle.SUCCESS, okay);
     }
     @Test
+    public void runSimulationComputer_5200() {
+        BurnStream burnSource = new OnBoardComputer();
+        Simulation game = new Simulation(new Vehicle(5200));
+        int okay = game.runSimulation(burnSource);
+        Assert.assertEquals(Vehicle.SUCCESS, okay);
+    }
+    @Test
     public void runSimulationComputer_5500() {
         BurnStream burnSource = new OnBoardComputer();
         Simulation game = new Simulation(new Vehicle(5500));
+        int okay = game.runSimulation(burnSource);
+        Assert.assertEquals(Vehicle.SUCCESS, okay);
+    }
+    @Test
+    public void runSimulationComputer_6500() {
+        BurnStream burnSource = new OnBoardComputer();
+        Simulation game = new Simulation(new Vehicle(6500));
         int okay = game.runSimulation(burnSource);
         Assert.assertEquals(Vehicle.SUCCESS, okay);
     }

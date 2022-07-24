@@ -12,7 +12,7 @@ public class Simulation {
         int min = 10000;
 //        return (int)(Math.random() * (max - min)) + min;
         int r = (int)(Math.random() * (max - min)) + min;
-        return (r % 15000 + 4501);
+        return (r % 15000 + 4501); // best you can land is 4501
     }
 
 
@@ -85,9 +85,20 @@ public class Simulation {
 //        OnBoardComputer onBoardComputer = new OnBoardComputer();
 //        sim.runSimulation(onBoardComputer);
 
-        Simulation sim = new Simulation(new Vehicle(5000));
-        BurnInputStream burnStream = new BurnInputStream();
-        sim.runSimulation(burnStream);
+//        Simulation sim = new Simulation(new Vehicle(5000));
+//        BurnInputStream burnStream = new BurnInputStream();
+//        sim.runSimulation(burnStream);
+
+        BurnStream burnStream = new OnBoardComputer();
+        Simulation simRunner;
+        for (int i = 4501; i <= 4599; i++) {
+            simRunner = new Simulation(new Vehicle(i));
+            if (simRunner.runSimulation(burnStream) < 0) {
+                System.out.println("You lose.");
+                break;
+            }
+        }
+        System.out.println("fin.");
     }
 
 }
