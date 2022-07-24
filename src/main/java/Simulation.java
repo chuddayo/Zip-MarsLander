@@ -10,8 +10,9 @@ public class Simulation {
     public static int randomaltitude() {
         int max = 20000;
         int min = 10000;
+//        return (int)(Math.random() * (max - min)) + min;
         int r = (int)(Math.random() * (max - min)) + min;
-        return (r % 15000 + 4000);
+        return (r % 15000 + 4501);
     }
 
 
@@ -70,17 +71,22 @@ public class Simulation {
         }
         printString(vehicle.checkFinalStatus());
         if (status != null) {
-            return status.getStatus();
+//            return status.getStatus();
+            return vehicle.getFlying();
         }
-        return -1;
+        return -44;
     }
 
     public static void main(String[] args) {
         // create a new Simulation object with a random starting altitude
-        Simulation sim = new Simulation(new Vehicle(randomaltitude()));
         // create a new BurnInputStream
-        BurnInputStream burnStream = new BurnInputStream();
         // pass the new BurnInputStream to the runSimulation method
+//        Simulation sim = new Simulation(new Vehicle(randomaltitude()));
+//        OnBoardComputer onBoardComputer = new OnBoardComputer();
+//        sim.runSimulation(onBoardComputer);
+
+        Simulation sim = new Simulation(new Vehicle(5000));
+        BurnInputStream burnStream = new BurnInputStream();
         sim.runSimulation(burnStream);
     }
 
