@@ -30,4 +30,7 @@ public class OnBoardComputer implements BurnStream {
         return burn;
     }
 
+    public void setFreefall(Boolean freefall) {
+        this.freefall = freefall;
+    }
 }

@@ -89,14 +89,15 @@ public class Simulation {
 //        BurnInputStream burnStream = new BurnInputStream();
 //        sim.runSimulation(burnStream);
 
-        BurnStream burnStream = new OnBoardComputer();
+        OnBoardComputer burnStream = new OnBoardComputer();
         Simulation simRunner;
-        for (int i = 4501; i <= 4599; i++) {
+        for (int i = 4501; i <= 4501; i++) {
             simRunner = new Simulation(new Vehicle(i));
             if (simRunner.runSimulation(burnStream) < 0) {
                 System.out.println("You lose.");
                 break;
             }
+            burnStream.setFreefall(true);
         }
         System.out.println("fin.");
     }
