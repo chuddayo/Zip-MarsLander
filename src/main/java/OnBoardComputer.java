@@ -16,7 +16,7 @@ public class OnBoardComputer implements BurnStream {
             burn = 200;
             freefall = false;
         }
-        else if (status.getAltitude() < status.getVelocity() * 10) {
+        else if (status.getAltitude() < status.getVelocity() * 12) {
             if (status.getVelocity() / 4 > 100) {
                 burn = 200;
             } else {
