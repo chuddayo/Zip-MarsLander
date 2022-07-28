@@ -91,7 +91,7 @@ public class Simulation {
 
         OnBoardComputer burnStream = new OnBoardComputer();
         Simulation simRunner;
-        for (int i = 4501; i <= 4501; i++) {
+        for (int i = 20501; i <= 30501; i++) {
             simRunner = new Simulation(new Vehicle(i));
             if (simRunner.runSimulation(burnStream) < 0) {
                 System.out.println("You lose.");
